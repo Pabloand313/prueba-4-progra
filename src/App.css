@@ -1,5 +1,6 @@
-/* Centrado absoluto y fondo beige suave */
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -7,115 +8,126 @@ html, body, #root {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #11960c;
+  background-color: #0f172a; 
   font-family: 'Segoe UI', system-ui, sans-serif;
   box-sizing: border-box;
 }
 
-/* Tarjeta con borde negro marcado estilo boceto */
 .App {
-  background-color: #ff0606;
-  border: 3px solid #1e1e1e;
-  border-radius: 0px; /* Esquinas rectas */
-  box-shadow: 6px 6px 0px #1e1e1e; /* Sombra sólida */
+  background-color: #1e293b; 
+  border-radius: 16px;
+  border: 1px solid #334155; 
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
   padding: 30px;
   width: 90%;
   max-width: 480px;
   box-sizing: border-box;
 }
 
-/* Título */
 h1 {
   text-align: center;
-  color: #1e1e1e;
+  color: #f8fafc; 
   font-size: 1.6rem;
-  font-weight: 800;
-  text-transform: uppercase;
+  font-weight: 700;
   margin-top: 0;
   margin-bottom: 24px;
 }
 
-/* Formulario */
 form {
   display: flex;
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
-/* Input con borde duro */
 form input {
   flex: 1;
   padding: 12px 16px;
-  border: 3px solid #1e1e1e;
-  border-radius: 0px;
+  border: 2px solid #334155;
+  border-radius: 8px;
   font-size: 1rem;
-  color: #1e1e1e;
-  background-color: #ffffff;
+  color: #f8fafc;
+  background-color: #0f172a; 
+  transition: border-color 0.2s ease;
 }
 
 form input:focus {
-  background-color: #1e05ff;
+  border-color: #a855f7; 
   outline: none;
 }
 
-/* Botón destacado en color tierra */
 .btn-submit {
-  background-color: #d97706;
-  color: #000000;
-  border: 3px solid #1e1e1e;
-  border-radius: 0px;
+  background-color: #a855f7; 
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
   padding: 12px 24px;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
-  box-shadow: 3px 3px 0px #1e1e1e;
+  transition: background-color 0.2s ease;
 }
 
-.btn-submit:active {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0px #1e1e1e;
+.btn-submit:hover {
+  background-color: #9333ea; 
 }
 
-/* Lista */
+.contador {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #94a3b8; 
+  margin-bottom: 20px;
+}
+
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
-/* Filas con borde marcado */
 li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #334155; 
+  border: 1px solid #475569;
+  border-radius: 8px;
   padding: 14px 16px;
-  background-color: #ffffff;
-  border: 2px solid #1e1e1e;
-  font-size: 1rem;
-  color: #1e1e1e;
-  font-weight: 600;
+  margin-bottom: 12px;
+  color: #e2e8f0;
 }
 
-/* Botones de acción */
-li button {
-  border: 2px solid #1e1e1e;
-  border-radius: 0px;
-  padding: 6px 12px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #ffffff;
-  cursor: pointer;
+li div {
+  display: flex;
+  gap: 8px;
 }
 
-/* Verde oliva */
 .btn-edit {
-  background-color: #15803d;
+  background: #06b6d4; 
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-/* Terracota */
+.btn-edit:hover {
+  background: #0891b2;
+}
+
 .btn-delete {
-  background-color: #b91c1c;
+  background: #ef4444; 
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-delete:hover {
+  background: #dc2626;
 }

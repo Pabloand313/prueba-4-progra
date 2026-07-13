@@ -18,15 +18,31 @@ function App() {
 
   const addOrUpdateItem = (value) => {
     if (itemToEdit) {
-      setItems(items.map(item => item.id === itemToEdit.id ? { ...item, value } : item));
+      setItems(
+        items.map((item) =>
+          item.id === itemToEdit.id ? { ...item, value } : item
+        )
+      );
       setItemToEdit(null);
     } else {
-      setItems([...items, { id: Date.now(), value }]);
+      setItems([
+        ...items,
+        {
+          id: Date.now(),
+          value,
+        },
+      ]);
     }
   };
 
   const deleteItem = (id) => {
-    setItems(items.filter(item => item.id !== id));
+    const confirmar = window.confirm(
+      "¿Estás seguro de que deseas eliminar este elemento?"
+    );
+
+    if (confirmar) {
+      setItems(items.filter((item) => item.id !== id));
+    }
   };
 
   const editItem = (item) => {
@@ -36,8 +52,21 @@ function App() {
   return (
     <div className="App">
       <h1>CRUD con LocalStorage</h1>
-      <Form addOrUpdateItem={addOrUpdateItem} itemToEdit={itemToEdit} />
-      <List items={items} deleteItem={deleteItem} editItem={editItem} />
+
+      <Form
+        addOrUpdateItem={addOrUpdateItem}
+        itemToEdit={itemToEdit}
+      />
+
+      <p className="contador">
+        <strong>Total:</strong> {items.length}
+      </p>
+
+      <List
+        items={items}
+        deleteItem={deleteItem}
+        editItem={editItem}
+      />
     </div>
   );
 }

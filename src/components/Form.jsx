@@ -13,21 +13,27 @@ function Form({ addOrUpdateItem, itemToEdit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputValue.trim()) {
-      addOrUpdateItem(inputValue);
-      setInputValue("");
+
+    if (inputValue.trim() === "") {
+      alert("No se pueden agregar elementos vacíos o solo con espacios.");
+      return;
     }
+
+    addOrUpdateItem(inputValue.trim());
+    setInputValue("");
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
+        placeholder="Ingrese un elemento"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
+
       <button type="submit" className="btn-submit">
-        {itemToEdit ? 'Actualizar' : 'Agregar'}
+        {itemToEdit ? "Actualizar" : "Agregar"}
       </button>
     </form>
   );

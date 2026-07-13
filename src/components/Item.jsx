@@ -3,12 +3,20 @@ import React from 'react';
 function Item({ item, deleteItem, editItem }) {
   return (
     <li>
-      {item.value}
+      <span>{item.value}</span>
+
       <div>
-        <button className="btn-edit" onClick={() => editItem(item)}>
+        <button
+          className="btn-edit"
+          onClick={() => editItem(item)}
+        >
           Editar
         </button>
-        <button className="btn-delete" onClick={() => deleteItem(item.id)}>
+
+        <button
+          className="btn-delete"
+          onClick={() => deleteItem(item.id)}
+        >
           Eliminar
         </button>
       </div>
