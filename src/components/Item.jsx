@@ -1,11 +1,20 @@
 import React from 'react';
 
-function Item({ item, deleteItem, editItem }) {
+function Item({ item, deleteItem, editItem, toggleComplete }) {
   return (
     <li>
-      <span>{item.value}</span>
+      <span className={item.completed ? "completed" : ""}>
+        {item.value}
+      </span>
 
       <div>
+        <button
+          className="btn-complete"
+          onClick={() => toggleComplete(item.id)}
+        >
+          {item.completed ? "Deshacer" : "Completar"}
+        </button>
+
         <button
           className="btn-edit"
           onClick={() => editItem(item)}

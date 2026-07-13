@@ -14,10 +14,10 @@ body,
 }
 
 .App {
-  background-color: #1e293b; 
+  background-color: #1e293b;
   border-radius: 16px;
-  border: 1px solid #334155; 
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #334155;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
   padding: 30px;
   width: 90%;
   max-width: 480px;
@@ -26,7 +26,7 @@ body,
 
 h1 {
   text-align: center;
-  color: #f8fafc; 
+  color: #f8fafc;
   font-size: 1.6rem;
   font-weight: 700;
   margin-top: 0;
@@ -46,17 +46,17 @@ form input {
   border-radius: 8px;
   font-size: 1rem;
   color: #f8fafc;
-  background-color: #0f172a; 
+  background-color: #0f172a;
   transition: border-color 0.2s ease;
 }
 
 form input:focus {
-  border-color: #a855f7; 
+  border-color: #a855f7;
   outline: none;
 }
 
 .btn-submit {
-  background-color: #a855f7; 
+  background-color: #a855f7;
   color: #ffffff;
   border: none;
   border-radius: 8px;
@@ -68,14 +68,14 @@ form input:focus {
 }
 
 .btn-submit:hover {
-  background-color: #9333ea; 
+  background-color: #9333ea;
 }
 
 .contador {
   text-align: center;
   font-size: 15px;
   font-weight: 600;
-  color: #94a3b8; 
+  color: #94a3b8;
   margin-bottom: 20px;
 }
 
@@ -89,7 +89,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #334155; 
+  background: #334155;
   border: 1px solid #475569;
   border-radius: 8px;
   padding: 14px 16px;
@@ -102,32 +102,83 @@ li div {
   gap: 8px;
 }
 
-.btn-edit {
-  background: #06b6d4; 
+/* --- Nuevos elementos adaptados --- */
+
+.search {
+  background: #0f172a;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 2px solid #334155;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #f8fafc;
+  transition: border-color 0.2s ease;
+}
+
+.search:focus {
+  border-color: #a855f7;
+  outline: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #64748b; /* Un gris más tenue para tareas completadas */
+  font-style: italic;
+}
+
+.btn-complete {
+  background: #06b6d4; /* Turquesa */
   color: white;
   border: none;
   border-radius: 6px;
   padding: 8px 14px;
-  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
-.btn-edit:hover {
-  background: #0891b2;
+.btn-edit {
+  background: #3b82f6; /* Azul moderno */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
 .btn-delete {
-  background: #ef4444; 
+  background: #ef4444;
   color: white;
   border: none;
   border-radius: 6px;
   padding: 8px 14px;
-  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
-.btn-delete:hover {
-  background: #dc2626;
+.btn-delete-all {
+  width: 100%;
+  background: #7f1d1d; /* Rojo oscuro para acción destructiva */
+  color: #fca5a5;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.btn-delete-all:hover {
+  background: #991b1b;
+  color: #ffffff;
+}
+
+.btn-edit:hover,
+.btn-delete:hover,
+.btn-complete:hover {
+  opacity: 0.8;
 }

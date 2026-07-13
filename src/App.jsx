@@ -6,6 +6,7 @@ import './App.css';
 function App() {
   const [items, setItems] = useState([]);
   const [itemToEdit, setItemToEdit] = useState(null);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const storedItems = JSON.parse(localStorage.getItem('items')) || [];
@@ -20,7 +21,9 @@ function App() {
     if (itemToEdit) {
       setItems(
         items.map((item) =>
-          item.id === itemToEdit.id ? { ...item, value } : item
+          item.id === itemToEdit.id
+            ? { ...item, value }
+            : item
         )
       );
       setItemToEdit(null);
@@ -30,6 +33,7 @@ function App() {
         {
           id: Date.now(),
           value,
+          completed: false,
         },
       ]);
     }
@@ -49,6 +53,31 @@ function App() {
     setItemToEdit(item);
   };
 
+  const toggleComplete = (id) => {
+    setItems(
+      items.map((item) =>
+        item.id === id
+          ? { ...item, completed: !item.completed }
+          : item
+      )
+    );
+  };
+
+  const deleteAll = () => {
+    const confirmar = window.confirm(
+      "¿Seguro que deseas eliminar todos los elementos?"
+    );
+
+    if (confirmar) {
+      setItems([]);
+      setItemToEdit(null);
+    }
+  };
+
+  const filteredItems = items.filter((item) =>
+    item.value.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="App">
       <h1>CRUD con LocalStorage</h1>
@@ -58,14 +87,32 @@ function App() {
         itemToEdit={itemToEdit}
       />
 
+      <input
+        type="text"
+        className="search"
+        placeholder="Buscar elemento..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
       <p className="contador">
         <strong>Total:</strong> {items.length}
       </p>
 
+      {items.length > 0 && (
+        <button
+          className="btn-delete-all"
+          onClick={deleteAll}
+        >
+          Borrar todos
+        </button>
+      )}
+
       <List
-        items={items}
+        items={filteredItems}
         deleteItem={deleteItem}
         editItem={editItem}
+        toggleComplete={toggleComplete}
       />
     </div>
   );
